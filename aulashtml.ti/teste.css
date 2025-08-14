@@ -1,0 +1,22 @@
+body {
+margin: 50px;
+background-color: black;
+display: flex;
+justify-content: center;
+}
+
+.container{
+text-align: center;
+background-color: white;
+padding:30px;
+border-radius:10px;
+}
+
+.booton {
+background-color: whitesmoke;
+border: none;
+padding: 10px;
+border-radius:5px;
+font-size:16px;
+cursor: pointer;
+}
