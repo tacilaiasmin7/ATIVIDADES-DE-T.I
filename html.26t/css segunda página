@@ -1,0 +1,138 @@
+/* Importando fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Reset de margens e padding padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+    padding: 30px;
+    margin: 0;
+}
+
+/* Estilo do header */
+header {
+    background: linear-gradient(135deg, #0073e6, #00bcd4);
+    color: white;
+    text-align: center;
+    padding: 25px;
+    font-size: 28px;
+    font-weight: 500;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+/* Título h2 */
+h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilo das listas de opções */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Estilo de cada item da lista (como botão) */
+li {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 15px 25px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito de hover nos itens da lista */
+li:hover {
+    background-color: #f1f1f1;
+    border-color: #00bcd4;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo da área de detalhes */
+#detalhes {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 30px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilo do footer */
+footer {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 14px;
+    color: #777;
+    padding-top: 15px;
+}
+
+footer a {
+    color: #0073e6;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    header {
+        font-size: 24px;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    li {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    li {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
