@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<header>
+    XMATECH - Desenvolvimento de softwares 💻
+</header>  
+<link rel="stylesheet" href="software.css">
+<h2> Escolha um  tipo de software que deseja negociar:</h2>
+<ul>
+    <li onclick="carregarbd('Banco de Dados')">Software de Banco de Dados</li>
+    <li onclick="carregarbd('Seguranca')">Software de Segurança</li>
+    <li onclick="carregarbd('Aplicativo')">Software Aplicativo</li>
+    <li onclick="carregarbd('Sistema')">Software de Sistema</li>
+</ul>
+<div id="detalhes"></div>
+<footer>
+    &Copyrigth © 2025 XMATECH. All rights reserved 
+    <p>Telefone: (31) 998475-6239</p>
+    <a href="https://www.instagram.com/xmatech/">Instagram</a>
+</footer>
+<script>
+
+// função assíncrona para carregar detalhes do curso
+// declara uma função assíncrona chamada "carregarbd" que recebe o nome do curso como parâmetro
+async function carregarbd(carregar) {
+    try{
+    
+        // acessa o elemento HTML com id "detalhes" e altera seu coteúdo para mostrar que o curso está carregando
+document.getElementById("detalhes").innerHTML = "Carregando informações...";
+
+// simula um tempo de espera de dois segundos (2000ms) usando uma Promise e await
+// await pausa a execução desta função por dois segundos sem travar o restante do código
+await new Promise (resolve => setTimeout(resolve, 2000));
+
+// cria um objeto com mensagens diferentes para cada sofware
+// a chave é o nome do software e o valor é a descrição correspondente
+let mensagens = {
+    "Banco de Dados":"Banco de Dados é utilizado para armazenar, gerenciar e organizar grandes volumes de dados, permitindo consultas rápidas, inserção e atualização de informações de forma eficiente e segura.",
+    
+    "Seguranca":"Os Softwares de Segurança tem como objetivo proteger os sistemas e dados contra ameaças externas e internas, garantindo a confidencialidade, integridade e disponibilidade das informações.",
+    
+    "Aplicativo":"Software de Aplicativo são programas criados para realizar tarefas específicas para o usuário final, como edição de texto, navegação na web, ou gerenciamento financeiro, atendendo às necessidades cotidianas.",
+    
+    "Sistema":" O Software de sistema é responsável por gerenciar os recursos do computador, como o sistema operacional, drivers e ferramentas essenciais para o funcionamento do hardware e dos softwares aplicativos."
+
+};
+// atualiza o conteúdo do elemento HTML com id "detalhes" para mostrar ao correspondente ao tipo de software selecionado 
+document.getElementById("detalhes").innerHTML = mensagens[carregar];
+    }
+    catch (erro) {
+        // caso algo de errado, mostra essa mensagem
+        document.getElementById("detalhes").innerHTML = "erro:" + erro.message;
+}
+}
+</script>
+</body>
+</html>
