@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<header>
+    DUMONT AIRLINES ✈️🌎
+</header>  
+<link rel="stylesheet" href="teste.css">
+<h2> Escolha um destino:</h2>
+<ul>
+    <li onclick="carregards('Salvador')">Salvador - BA</li>
+    <img src="https://i0.wp.com/www.mapadeviajante.com.br/wp-content/uploads/2022/01/2021-Salvador-Capa-1.jpg?w=960&ssl=1" alt="descrição" width="500px" heigth="300px">
+    
+    <li onclick="carregards('Natal')">Natal - RN</li>
+    <img src="https://www.praiasdenatal.com.br/wp-content/uploads/2014/08/Natal-RN1.jpg" alt="descrição" width="500px" height="300px">
+    
+    <li onclick="carregards('Santiago')">Santiago - CHL</li>
+    <img src="https://gochile.com.br/fotos/header/107574-costanera_center_5-mqz78ancr8f1t9l6iikv60w6yy2tuyim1hwe48ioq8.jpg" alt="descrição" width="500px" height="300px">
+    
+    <li onclick="carregards('Buenos Aires')">Buenos Aires - ARG</li>
+    <img src="https://cdn2.paraty.es/parkroyal-corpo/images/29581ba3c89a845" alt="descrição" width="500px" height="300px">
+    
+    <li onclick="carregards('Medellín')">Medellín - CL</li>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPIr4wZii0xWLvdDvDqGQITzyZNfpzFGmMXw&s" alt="descrição" width="500px" height="300px">
+    
+    <li onclick="carregards('Bangkok')">Bangkok - THA</li>
+    <img src="https://phiphibrazuca.com/wp-content/uploads/2024/05/pontos-turisticos-de-bangkok.jpg" alt="descrição" width="500px" height="300px">
+    
+    <li onclick="carregards('Tóquio')">Tóquio - JPN</li>
+    <img src="https://viagemeturismo.abril.com.br/wp-content/uploads/2016/10/9-9s.jpeg?quality=70&strip=info&w=846&w=636" alt="descrição" width="500px" height="300px">
+</ul>&
+<div id="detalhes"></div>
+<footer>
+    &Copyrigth © 2025 DUMONT AIRLINES. All rights reserved 
+    <p>Telefone: (31) 998475-6239</p>
+    <a href="https://www.instagram.com/">Instagram</a>
+</footer>
+<script>
+
+// função assíncrona para carregar detalhes do destibo
+// declara uma função assíncrona chamada "carregarbd" que recebe o nome do curso como parâmetro
+async function carregards(carregar) {
+    try{
+    
+        // acessa o elemento HTML com id "detalhes" e altera seu coteúdo para mostrar que o curso está carregando
+document.getElementById("detalhes").innerHTML = "Carregando informações...";
+
+// simula um tempo de espera de dois segundos (2000ms) usando uma Promise e await
+// await pausa a execução desta função por dois segundos sem travar o restante do código
+await new Promise (resolve => setTimeout(resolve, 2000)); // a palavra resolve e o tempo podem ser mudadas, mas o retante é sempre do mesmo jeito
+
+// cria um objeto com mensagens diferentes para cada sofware
+// a chave é o nome do software e o valor é a descrição correspondente
+let mensagens = {
+    "Salvador":"Salvador é um encontro mágico entre história, fé, música e mar. Caminhar pelo Pelourinho, sentir o som do berimbau e ver o pôr do sol na Baía de Todos os Santos é viver a alma vibrante da Bahia em sua forma mais autêntica.",
+    
+    "Natal":"Com dunas douradas, mar cristalino e sol o ano inteiro, Natal é o destino perfeito para quem busca beleza natural, aventura e aquele clima nordestino acolhedor que conquista desde o primeiro sorriso.",
+    
+    "Santiago":"Santiago é uma cidade onde a modernidade se encontra com os Andes — um cenário urbano rodeado por montanhas imponentes, vinhos premiados e uma cultura vibrante que transforma cada passeio em uma descoberta inesquecível.",
+    
+    "Buenos Aires":"Buenos Aires é puro encanto: ruas cheias de história, tango apaixonante, gastronomia de dar água na boca e uma energia única. Viva essa experiência com quem entende de viagem!",
+    
+    "Medellín":"Medellín não é só a cidade da eterna primavera — é um destino que floresceu com sua história, se reinventou com inovação e encanta com sua cultura vibrante. Venha viver uma Colômbia moderna, acolhedora e surpreendente.",
+    
+    "Bangkok":"Bangkok a cidade que nunca dorme — vibrante, colorida e cheia de contrastes. Entre mercados flutuantes, templos dourados e arranha-céus modernos, cada rua conta uma nova história.",
+    
+    "Tóquio":"Em Tóquio, arranha-céus iluminam a noite enquanto templos milenares convidam à contemplação. Uma cidade onde a tradição e o futuro convivem em perfeita harmonia, criando uma experiência única para todos os sentidos."
+
+
+
+};
+// atualiza o conteúdo do elemento HTML com id "detalhes" para mostrar ao correspondente ao tipo de software selecionado 
+document.getElementById("detalhes").innerHTML = mensagens[carregar];
+    }
+    catch (erro) {
+        // caso algo de errado, mostra essa mensagem
+        document.getElementById("detalhes").innerHTML = "erro:" + erro.message;
+}
+}
+</script>
+</body>
+</html>
+
+//parte css
+
+/* Importando fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+/* Reset de margens e padding padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Corpo da página */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    line-height: 1.6;
+    padding: 30px;
+    margin: 0;
+}
+
+/* Estilo do header */
+header {
+    background: linear-gradient(135deg, #0073e6, #00bcd4);
+    color: white;
+    text-align: center;
+    padding: 25px;
+    font-size: 28px;
+    font-weight: 500;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+/* Título h2 */
+h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Estilo das listas de opções */
+ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+/* Estilo de cada item da lista (como botão) */
+li {
+    background-color: #fff;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    padding: 15px 25px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 18px;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito de hover nos itens da lista */
+li:hover {
+    background-color: #f1f1f1;
+    border-color: #00bcd4;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilo da área de detalhes */
+#detalhes {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 30px;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilo do footer */
+footer {
+    text-align: center;
+    margin-top: 60px;
+    font-size: 14px;
+    color: #777;
+    padding-top: 15px;
+}
+
+footer a {
+    color: #0073e6;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsividade para telas pequenas */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    header {
+        font-size: 24px;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 20px;
+    }
+
+    li {
+        font-size: 16px;
+        padding: 12px 20px;
+    }
+
+    footer {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 20px;
+        padding: 15px;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    li {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
