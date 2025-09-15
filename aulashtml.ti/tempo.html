@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<style>
+    body{
+        transition: background-color 1s;
+        font-family: Arial, Helvetica, sans-serif;
+        color:rgb(7, 7, 7);
+        text-align: center;
+        padding-top:70px;
+    }
+
+    button {
+        padding: 20px;
+        font-size: 16px;
+        margin-top: 20px;
+        cursor: pointer;
+        border: none;
+        border-radius: 5px;
+    }    
+    @media(max-width: 768px) {
+        body {font-size: 35px; padding-top:50px;}
+        button { font-size: 14px; padding: 16px;}
+    }
+</style>    
+<body>
+    <h1 id="titulo"> Bem-vindo(a)!</h1>
+
+    <p id="frase">Clique no botão para mudar a cor da página de acordo com o horário atual.</p>
+    <p id="hora"></p>
+    <p id="data"></p>
+    <button onclick="trocar()">mudar cor</button>
+    <script>
+    function trocar() {
+    let cor;
+    let mensagem;
+    const agora = new Date();
+    const hora = agora.getHours();
+    const minutos = agora.getMinutes().toString().padStart(2, "0");
+    const opcoes = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
+    const dataFormatada = agora.toLocaleDateString("pt-br", opcoes);
+    
+    
+    
+    if (hora>= 6 && hora <12){
+    cor = "#FFD700"; // dourado manhã.
+    mensagem = "Bom dia 🌞"
+    } else if (hora>= 12 && hora <18){
+    cor = "FF8C00";
+    mensagem = "Boa tarde ⛅";
+    } else if (hora >= 18 && hora < 23){
+    cor = "1E90FF"; // azul crepúsculo+.
+    mensagem = "Boa noite 🌙";
+    } else {
+    cor = "#2F4F4F";
+    mensagem = "Hora de descansar 🌑";
+    }
+    document.body.style.backgroundColor = cor;
+    document.getElementById("titulo").innerHTML = mensagem;
+    document.getElementById("frase").innerHTML = "";
+    document.getElementById("hora").innerHTML= hora + ":" + minutos;
+    document.getElementById("data").innerHTML = dataFormatada;
+    }
+    </script>
+</body>
+</html>
