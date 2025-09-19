@@ -10,7 +10,7 @@
 <style>
     body{
         transition: background-color 1s;
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: 'Times New Roman', Times, serif;
         color:rgb(7, 7, 7);
         text-align: center;
         padding-top:70px;
@@ -30,43 +30,69 @@
     }
 </style>    
 <body>
-    <h1 id="titulo"> Bem-vindo(a)!</h1>
-
-    <p id="frase">Clique no botão para mudar a cor da página de acordo com o horário atual.</p>
+    <h1 id="titulo"></h1>
     <p id="hora"></p>
     <p id="data"></p>
-    <button onclick="trocar()">mudar cor</button>
+    <p id="frase"></p>
     <script>
     function trocar() {
-    let cor;
-    let mensagem;
     const agora = new Date();
     const hora = agora.getHours();
     const minutos = agora.getMinutes().toString().padStart(2, "0");
+    const segundos = agora.getSeconds().toString().padStart(2, "0");
     const opcoes = {weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'};
     const dataFormatada = agora.toLocaleDateString("pt-br", opcoes);
+    let cor;
+    let mensagem;
     
     
     
     if (hora>= 6 && hora <12){
     cor = "#FFD700"; // dourado manhã.
-    mensagem = "Bom dia 🌞"
+    mensagem = "Bom dia ☀️"
+    frases = ["Bom dia, que Deus abemçoe o seu dia 🙌.",
+              "Levanta com fé no coração, que o dia vai ser bom, se Deus quiser.",
+              "Mais um dia com saúde, já é vitória. Que ele seja abençoado!"
+             ]
     } else if (hora>= 12 && hora <18){
     cor = "FF8C00";
     mensagem = "Boa tarde ⛅";
+    frases = ["Boa tarde, e que a saúde e a alegria te sigam até a noite.",
+              "A tarde está bonita, né? Vamos aproveitar com calma e carinho. Boa tarde!",
+              "Que a tarde traga serenidade e bons momentos. Bom descanso."
+             ]
     } else if (hora >= 18 && hora < 23){
     cor = "1E90FF"; // azul crepúsculo+.
     mensagem = "Boa noite 🌙";
+    frases = ["Boa noite! Durma em paz e acorde renovado para um novo dia de bênçãos.",
+              "Que a paz de Deus invada seu coração nesta noite e te traga tranquilidade.",
+              "Boa noite, Que os anjos guardem o seu sono e te dêem bons sonhos."
+             ]
     } else {
     cor = "#2F4F4F";
     mensagem = "Hora de descansar 🌑";
+    frases = ["A madrugada é silenciosa, mas cheia de oração. Que Deus te proteja durante o descanso. Boa madrugada!",
+              "Se acordou agora, que tenha um descanso tranquilo e abençoado. Boa madrugada!",
+              "Na calma da madrugada, que você sinta a presença de Deus te protegendo. Boa madrugada!"]
     }
     document.body.style.backgroundColor = cor;
     document.getElementById("titulo").innerHTML = mensagem;
-    document.getElementById("frase").innerHTML = "";
-    document.getElementById("hora").innerHTML= hora + ":" + minutos;
-    document.getElementById("data").innerHTML = dataFormatada;
+    document.getElementById("hora").innerHTML= hora + ":" + minutos + ":" + segundos;
+    document.getElementById("data").innerHTML = '📅' + dataFormatada;
     }
-    </script>
+    let frases = [];
+    function trocarFrase() {
+        if (frases.length > 0) {
+            const fraseAleatoria = frases[Math.floor(Math.random() * frases.length)]
+            document.getElementById("frase").innerHTML = fraseAleatoria;
+        }
+    }
+    
+    trocar();
+    setInterval (trocar, 1000);
+
+    trocarFrase();
+    setInterval(trocarFrase, 3000);
+</script>
 </body>
 </html>
