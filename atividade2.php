@@ -7,7 +7,7 @@
 </head>
 
 <style>
-    /* 🌑 Estilo de Vilão Sombrio 😈 */
+    /* 🌑 Estilo*/
     body {
         background: linear-gradient(135deg, #0a0a0a, #1a1a1a); /* Fundo escuro com degradê */
         color: #e50914; /* Vermelho intenso estilo “vilão” */
@@ -114,4 +114,5 @@
     <footer>“O conhecimento é poder... e o poder pertence a quem ousa.” 🩸</footer>
 </body>
 </html>
+
 
