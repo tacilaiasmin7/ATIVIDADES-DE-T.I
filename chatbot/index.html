@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Chatbot Simples com Voz</title>
+<style>
+    body {
+        font-family: Arial;
+        background: #f0f0f0;
+        padding: 20px;
+    }
+    .chatbox {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        max-width: 400px;
+        margin: auto;
+        text-align: center;
+    }
+   
+    button {
+        margin-top: 10px;
+        padding: 10px;
+        width: 50%;
+        cursor: pointer;
+        background: #8e096f;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 16px;
+    }
+</style>
+</head>
+<body>
+
+<div class="chatbox">
+    <h2> Chatbot por Voz</h2>
+    <button onclick="ouvir()">Falar Agora</button>
+</div>
+
+<script>
+// PERGUNTA ÚNICA QUE O BOT ENTENDE
+const pergunta = "como você está";
+
+// RESPOSTA ÚNICA DO BOT
+const resposta = "Estou bem! Obrigado por perguntar.";
+
+// FALAR EM VOZ
+// Função que faz o navegador "falar"
+function falar(texto) {
+    // Cria um objeto com o texto que será falado
+    const discurso = new SpeechSynthesisUtterance(texto);
+
+    // Define o idioma da voz (português do Brasil)
+    discurso.lang = "pt-BR";
+
+    // Define a velocidade da fala (1 = normal)
+    discurso.rate = 1;
+
+    // Faz o navegador falar o texto informado
+    window.speechSynthesis.speak(discurso);
+}
+
+// Função que escuta o que o usuário fala pelo microfone
+function ouvir() {
+    // Cria o reconhecedor de voz (apenas funciona no Chrome)
+    const reconhecer = new webkitSpeechRecognition();
+
+    // Define o idioma que será reconhecido
+    reconhecer.lang = "pt-BR";
+
+    // Inicia a captura de voz
+    reconhecer.start();
+
+    // Quando o usuário terminar de falar, esse evento é ativado
+    reconhecer.onresult = function(event) {
+
+        // Pega o texto que o usuário falou e transforma em minúsculas
+        const textoFalado = event.results[0][0].transcript.toLowerCase();
+
+        // Verifica se o texto que o usuário falou contém a pergunta esperada
+        if (textoFalado.includes(pergunta)) {
+            // Se sim, fala a resposta
+            falar(resposta);
+        } else {
+            // Se não, responde que não entendeu
+            falar("Desculpe, eu só entendo a pergunta: Como você está?");
+        }
+    };
+}
+
+</script>
+</body>
+</html>
