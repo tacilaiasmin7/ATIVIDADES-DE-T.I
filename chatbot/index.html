@@ -4,32 +4,51 @@
 <meta charset="UTF-8">
 <title>Chatbot Simples com Voz</title>
 <style>
-    body {
-        font-family: Arial;
-        background: #f0f0f0;
-        padding: 20px;
-    }
-    .chatbox {
-        background: white;
-        padding: 20px;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        max-width: 400px;
-        margin: auto;
-        text-align: center;
-    }
-   
-    button {
-        margin-top: 10px;
-        padding: 10px;
-        width: 50%;
-        cursor: pointer;
-        background: #8e096f;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-size: 16px;
-    }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f3e8ff; /* lilás bem clarinho */
+    margin: 0;
+    padding: 0;
+}
+
+.chatbox {
+    width: 350px;
+    background: #ffffffd9;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    margin: 60px auto;
+    text-align: center;
+    border: 2px solid #d4b6ff; /* lilás claro */
+}
+
+.chatbox h2 {
+    color: #7a4ed8; /* lilás mais forte */
+    margin-bottom: 15px;
+    font-size: 24px;
+}
+
+button {
+    padding: 12px 20px;
+    background: lightblue;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #9c75ff; /* lilás mais vibrante */
+    transform: scale(1.05);
+}
+
+button:active {
+    background: #865bff;
+}
+
+  
 </style>
 </head>
 <body>
@@ -41,10 +60,10 @@
 
 <script>
 // PERGUNTA ÚNICA QUE O BOT ENTENDE
-const pergunta = "como você está";
+const pergunta = ["oliguria","paciente", "quais os tipos de cirurgia", "quais os tipos de bronquite", "bacteriana"]
 
 // RESPOSTA ÚNICA DO BOT
-const resposta = "Estou bem! Obrigado por perguntar.";
+const resposta = ["Diminuição de débito urinário.", "Identificar corretamente o paciente, Melhorar a comunicação entre os profissionais de saúde, Garantir a segurança na prescrição no uso e na administração de medicamentos,Garantir cirurgia segura no paciente, Local e procedimento correto, Reduzir o risco de infecção e reduzir o risco de quedas.", "Eletiva, Urgência e Emergência.", "Bronquite Aguda e Bronquite Crônica.", "É uma infecção grave causada por bactérias que atinge as meninges, que são membranas que envolvem o cérebro e a medula espinhal. Ela é diferente da meningite viral, que costuma ser mais leve. A bactéria costuma evoluir rápido e colocar a vida em risco de não for tratada a tempo"];
 
 // FALAR EM VOZ
 // Função que faz o navegador "falar"
@@ -80,15 +99,17 @@ function ouvir() {
         const textoFalado = event.results[0][0].transcript.toLowerCase();
 
         // Verifica se o texto que o usuário falou contém a pergunta esperada
-        if (textoFalado.includes(pergunta)) {
-            // Se sim, fala a resposta
-            falar(resposta);
-        } else {
+      for (let i = 0; i < pergunta.length; i++) {
+                    if (textoFalado.includes(pergunta[i])) {
+                        falar(resposta[i]);
+                        return;
+                    }
+                }
             // Se não, responde que não entendeu
-            falar("Desculpe, eu só entendo a pergunta: Como você está?");
+            falar("Desculpe, eu não entendi. Repita, por favor");
         }
     };
-}
+
 
 </script>
 </body>
