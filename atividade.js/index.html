@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Inteligente</title>
+
+    <style>
+        /* Fundo da página */
+        body {
+            background-color: #f0f2f5;  /* cor clara neutra */
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Caixa centralizada */
+        .caixa {
+            width: 360px;
+            margin: 100px auto;
+            background-color: #ffffff; /* fundo branco da caixa */
+            padding: 25px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* sombra leve */
+        }
+
+        h1 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        p {
+            color: #555;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2563eb;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 15px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #1e40af;
+        }
+
+        #resultado {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #f3f4f6;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="caixa">
+        <h1>Sistema Inteligente de Iluminação Pública</h1>
+        <p>Digite a quantidade de pessoas na praça:</p>
+        <input type="number" id="valor" placeholder="Quantidade de pessoas"><br>
+        <button onclick="fazerTeste()" id="botao">Verificar</button>
+        <p id="resultado"></p>
+    </div>
+
+    <script>
+        function fazerTeste() {
+            const pessoas = Number(document.getElementById("valor").value)
+            let mensagem;
+
+            if (pessoas >= 30) {
+                mensagem = "Iluminação em potência máxima (muito movimentada)";
+            } else if (pessoas >= 15) {
+                mensagem = "Iluminação em potência média (movimento moderado)";
+            } else {
+                mensagem = "Iluminação em potência baixa (pouco movimento)";
+            }
+
+            document.getElementById("resultado").innerHTML = mensagem;
+
+            // Limpa o campo de input e deixa o cursor ativo
+            document.getElementById("valor").value = "";
+        }
+    </script>
+</body>
+</html>
